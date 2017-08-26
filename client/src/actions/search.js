@@ -29,3 +29,15 @@ export const updateSearchTerm = searchTerm =>
 
 export const updateSearchType = () =>
   ({ type: types.UPDATE_SEARCH_TYPE });
+
+export const updateCuisineType = (cuisine) =>
+  ({type: types.UPDATE_CUISINE_TYPE, cuisine: cuisine});
+
+export const updateNumCalories = (calories) =>
+  ({type: types.UPDATE_NUM_CALORIES, calories: calories});
+
+export const updatePrepTime = (time) =>
+  ({type: types.UPDATE_PREP_TIME, time: time});
+
+export const updateToggleButton = () =>
+  ({type: types.UPDATE_TOGGLE_BUTTON});

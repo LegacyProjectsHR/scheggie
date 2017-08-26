@@ -4,7 +4,11 @@ import data from '../../../sampleData.js';
 const INITIAL_STATE = {
   searchTerm: '',
   searchType: 'RECIPES',
-  results: data
+  results: data,
+  cuisine: '',
+  calories: '',
+
+
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -19,6 +23,22 @@ const reducer = (state = INITIAL_STATE, action) => {
       return _.extend({}, state, {
         results: action.results
       });
+    case types.UPDATE_CUISINE_TYPE:
+    return _.extend({}, state, {
+      cuisine: action.cuisine
+    });
+    case types.UPDATE_NUM_CALORIES:
+    return _.extend({}, state, {
+      cuisine: action.calories
+    })
+    case types.UPDATE_PREP_TIME:
+    return _.extend({}, state, {
+      cuisine: action.calories
+    })
+    case types.UPDATE_TOGGLE_BUTTON: 
+    return _.extend({}, state, {
+      cuisine: action.calories
+    })
   }
   return state;
 }
