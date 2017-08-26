@@ -7,8 +7,8 @@ const INITIAL_STATE = {
   results: data,
   cuisine: '',
   calories: '',
-
-
+  totalTimeInSeconds: '',
+  filterToggled: false
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -29,15 +29,15 @@ const reducer = (state = INITIAL_STATE, action) => {
     });
     case types.UPDATE_NUM_CALORIES:
     return _.extend({}, state, {
-      cuisine: action.calories
+      calories: action.calories
     })
     case types.UPDATE_PREP_TIME:
     return _.extend({}, state, {
-      cuisine: action.calories
+      totalTimeInSeconds: action.totalTimeInSeconds
     })
-    case types.UPDATE_TOGGLE_BUTTON: 
+    case types.UPDATE_TOGGLE_BUTTON:
     return _.extend({}, state, {
-      cuisine: action.calories
+      filterToggled: !state.filterToggled
     })
   }
   return state;

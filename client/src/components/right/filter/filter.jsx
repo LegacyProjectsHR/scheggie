@@ -7,17 +7,18 @@ import ArrowUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
 class Filter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filterClicked: false
-    }
+    // this.state = {
+    //   filterClicked: false
+    // }
     this.toggleFilterClick = this.toggleFilterClick.bind(this);
     this.updateCategoryTerm = this.updateCategoryTerm.bind(this);
   }
 
   toggleFilterClick() {
-    this.setState({
-      filterClicked: !this.state.filterClicked
-    })
+    // this.setState({
+    //   filterClicked: !this.state.filterClicked
+    // })
+    this.props.actions.updateToggleButton();
   }
 
   updateCategoryTerm(category, term) {
@@ -26,7 +27,7 @@ class Filter extends React.Component {
 
   render() {
 
-      if (this.state.filterClicked === false) {
+      if (this.props.search.filterToggled === false) {
         return (
            <div style = {{'padding-left' :'30px'}}>
              <span onClick = {this.toggleFilterClick}>Show Filters<ArrowDown/></span>

@@ -140,7 +140,7 @@ class Search extends React.Component {
             </span>
             <span style={{width: '30px'}}></span>
           </div>
-          <Filter updateCategoryTerm = {this.updateCategoryTerm}/>
+          <Filter updateCategoryTerm = {this.updateCategoryTerm} actions = {this.props.actions} search = {this.props.search}/>
         </div>
         <div style={{
           paddingRight: '30px'
