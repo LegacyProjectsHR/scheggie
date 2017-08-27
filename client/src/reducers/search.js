@@ -6,9 +6,10 @@ const INITIAL_STATE = {
   searchType: 'RECIPES',
   results: data,
   cuisine: '',
-  calories: '',
   totalTimeInSeconds: '',
-  filterToggled: false
+  calories: '',
+  filterToggled: false,
+  selected: ''
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -24,21 +25,38 @@ const reducer = (state = INITIAL_STATE, action) => {
         results: action.results
       });
     case types.UPDATE_CUISINE_TYPE:
-    return _.extend({}, state, {
-      cuisine: action.cuisine
+    console.log('updated cuisine val version: ', _.extend({}, state, {
+      selected: action.cuisine
+  }));
+      return _.extend({}, state, {
+        cuisine: action.cuisine
     });
     case types.UPDATE_NUM_CALORIES:
-    return _.extend({}, state, {
+    console.log('updated calories time val version: ', _.extend({}, state, {
+      selected: action.calories
+  }));
+      return _.extend({}, state, {
       calories: action.calories
     })
     case types.UPDATE_PREP_TIME:
-    return _.extend({}, state, {
-      totalTimeInSeconds: action.totalTimeInSeconds
+    console.log('updated prep time val version: ', _.extend({}, state, {
+      selected: action.totalTimeInSeconds
+  }));
+      return _.extend({}, state, {
+        totalTimeInSeconds: action.totalTimeInSeconds
     })
     case types.UPDATE_TOGGLE_BUTTON:
-    return _.extend({}, state, {
-      filterToggled: !state.filterToggled
+      return _.extend({}, state, {
+        filterToggled: !state.filterToggled
     })
+    case types.UPDATE_SELECTED_FILTER_VAL:
+    debugger
+      console.log('updated selected filter val version: ', _.extend({}, state, {
+        selected: action.selected
+    }));
+      return _.extend({}, state, {
+        selected: action.selected
+    });
   }
   return state;
 }

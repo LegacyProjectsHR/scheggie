@@ -36,8 +36,11 @@ export const updateCuisineType = (cuisine) =>
 export const updateNumCalories = (calories) =>
   ({type: types.UPDATE_NUM_CALORIES, calories: calories});
 
-export const updatePrepTime = (time) =>
-  ({type: types.UPDATE_PREP_TIME, time: time});
+export const updatePrepTime = (totalTimeInSeconds) =>
+  ({type: types.UPDATE_PREP_TIME, totalTimeInSeconds: totalTimeInSeconds});
 
 export const updateToggleButton = () =>
   ({type: types.UPDATE_TOGGLE_BUTTON});
+
+export const updateSelectedFilterVal = (selected) =>
+  ({type: types.UPDATE_SELECTED_FILTER_VAL, selected: selected});

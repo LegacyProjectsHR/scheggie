@@ -10,9 +10,9 @@ class Search extends React.Component {
     super(props);
     this.state = {
       searchTerm: '',
-      cuisine: '',
-      totalTimeInSeconds: 10000,
-      calories: ''
+      // cuisine: '',
+      // totalTimeInSeconds: 10000,
+      // calories: ''
     };
     this.debouncedSearch = _.debounce(
       this.props.actions.updateSearchThunk,
@@ -31,26 +31,37 @@ class Search extends React.Component {
     console.log('the category chosen is ', category);
     console.log('the term chosen is ', term);
     if(category === 'cuisine') {
-      this.setState({
-        cuisine: term
-      })
+      // this.setState({
+      //   cuisine: term
+      // })
+      this.props.actions.updateCuisineType(term);
     } else if (category === 'totalTimeInSeconds') {
-      this.setState({
-        totalTimeInSeconds: term
-      })
+      // this.setState({
+      //   totalTimeInSeconds: term
+      // })
+      this.props.actions.updatePrepTime(term);
     } else if (category === 'calories') {
-      this.setState({
-        calories: term
-      })
+      // this.setState({
+      //   calories: term
+      // })
+      this.props.actions.updateNumCalories(term);
     }
   }
 
   updateSearchAndFilter() {
+    // var filter = {
+    //   cuisine: this.state.cuisine,
+    //   totalTimeInSeconds: this.state.totalTimeInSeconds,
+    //   calories: this.state.calories
+    // }
+
     var filter = {
-      cuisine: this.state.cuisine,
-      totalTimeInSeconds: this.state.totalTimeInSeconds,
-      calories: this.state.calories
+      cuisine: this.props.search.cuisine,
+      totalTimeInSeconds: this.props.search.totalTimeInSeconds,
+      calories: this.props.search.calories
     }
+
+    debugger
     this.debouncedSearch(this.state.searchTerm, filter);
   }
 

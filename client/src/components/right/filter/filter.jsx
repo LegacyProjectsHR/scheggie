@@ -45,8 +45,9 @@ class Filter extends React.Component {
                     choices = {['Italian', 'Mexican', 'Chinese', 'Kid-Friendly', 'Barbeque', 'Thai', 'French', 'Japanese', 'English', 'Korean', 'Indian','American'].sort()}
                     category = 'cuisine'
                     selectCategory = "Cuisine"
-                    default =""
                     updateCategoryTerm = {this.updateCategoryTerm}
+                    actions = {this.props.actions}
+                    search = {this.props.search}
                   />
                 </span>
 
@@ -55,8 +56,9 @@ class Filter extends React.Component {
                     choices = {['900', '1800', '3600', '5400']}
                     category = 'totalTimeInSeconds'
                     selectCategory = "Prep Time (Min)"
-                    default = ""
                     updateCategoryTerm = {this.updateCategoryTerm}
+                    actions = {this.props.actions}
+                    search = {this.props.search}
                   />
                 </span>
 
@@ -65,8 +67,9 @@ class Filter extends React.Component {
                     choices = {['50', '100', '150', '200', '250', '300']}
                     category = 'calories'
                     selectCategory = "Calories / Serving"
-                    default = ""
                     updateCategoryTerm = {this.updateCategoryTerm}
+                    actions = {this.props.actions}
+                    search = {this.props.search}
                   />
                 </span>
 
