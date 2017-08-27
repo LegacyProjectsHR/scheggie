@@ -17,50 +17,16 @@ class Panel extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(event, index, value) {
-  //   console.log('the event value clicked is ', typeof value)
-  //   console.log('the clicked value is ', value)
-  //   if (value.includes('Any')) {
-  //     this.setState({
-  //       selected: this.props.default
-  //     }, function() {
-  //       if (this.props.category === 'cuisine') {
-  //         this.props.updateCategoryTerm(this.props.category, this.state.selected);
-  //       } else {
-  //         this.props.updateCategoryTerm(this.props.category, '10000');
-  //       }
-  //
-  //     })
-  //   } else {
-  //       this.setState({
-  //         selected:value
-  //       }, function() {
-  //         this.props.updateCategoryTerm(this.props.category, this.state.selected);
-  //       })
-  //   }
-  // }
-
   handleClick(event, index, value) {
     console.log('the event value clicked is ', typeof value)
     console.log('the clicked value is ', value)
-    // if (value.includes('Any')) {
-    //   this.props.actions.updateSelectedFilterVal('');
-    //   if (this.props.category === 'cuisine') {
-    //     this.props.updateCategoryTerm(this.props.category, '10000');
-    //   } else {
-    //     this.props.updateCategoryTerm(this.props.category, '');
-    //   }
-    // } else {
-    //   this.props.actions.updateSelectedFilterVal(value);
-    //   this.props.updateCategoryTerm(this.props.category, value);
-    // }
 
     if (this.props.category === 'cuisine') {
       value.includes('Any') ? this.props.actions.updateCuisineType('') : this.props.actions.updateCuisineType(value);
     } else if (this.props.category === 'calories') {
-      value.includes ('Any') ? this.props.actions.updateNumCalories('10000') : this.props.actions.updateNumCalories(value);
+      value.includes ('Any') ? this.props.actions.updateNumCalories('') : this.props.actions.updateNumCalories(value);
     } else if (this.props.category === 'totalTimeInSeconds') {
-      value.includes('Any') ? this.props.actions.updatePrepTime('10000') : this.props.actions.updatePrepTime(value);
+      value.includes('Any') ? this.props.actions.updatePrepTime('') : this.props.actions.updatePrepTime(value);
     }
   }
 

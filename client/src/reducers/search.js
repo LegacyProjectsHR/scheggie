@@ -6,8 +6,8 @@ const INITIAL_STATE = {
   searchType: 'RECIPES',
   results: data,
   cuisine: '',
-  totalTimeInSeconds: '10000',
-  calories: '10000',
+  totalTimeInSeconds: '',
+  calories: '',
   filterToggled: false,
   selected: ''
 };
