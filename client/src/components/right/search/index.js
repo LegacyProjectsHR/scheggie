@@ -54,6 +54,12 @@ class Search extends React.Component {
     this.debouncedSearch(this.state.searchTerm, filter);
   }
 
+  updateSearchOnEnter(e) {
+    if (e.keyCode === 13) {
+      this.updateSearchAndFilter();
+    }
+  }
+
   getFavoritesButton() {
     let toggled = this.props.searchType === 'FAVORITES';
 
@@ -121,6 +127,7 @@ class Search extends React.Component {
               }}
               value={this.state.searchTerm}
               onChange={this.updateSearch}
+              onKeyUp={(e) => this.updateSearchOnEnter(e)}
             />
             <span style={{paddingLeft: '98px', paddingTop: '30px'}}>
               <RaisedButton
