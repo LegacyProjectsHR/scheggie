@@ -6,8 +6,8 @@ const INITIAL_STATE = {
   searchType: 'RECIPES',
   results: data,
   cuisine: '',
-  totalTimeInSeconds: '',
-  calories: '',
+  totalTimeInSeconds: '10000',
+  calories: '10000',
   filterToggled: false,
   selected: ''
 };
@@ -25,22 +25,23 @@ const reducer = (state = INITIAL_STATE, action) => {
         results: action.results
       });
     case types.UPDATE_CUISINE_TYPE:
+    console.log('the action is ', action)
     console.log('updated cuisine val version: ', _.extend({}, state, {
-      selected: action.cuisine
+      cuisine: action.cuisine
   }));
       return _.extend({}, state, {
         cuisine: action.cuisine
     });
     case types.UPDATE_NUM_CALORIES:
     console.log('updated calories time val version: ', _.extend({}, state, {
-      selected: action.calories
+      calories: action.calories
   }));
       return _.extend({}, state, {
       calories: action.calories
     })
     case types.UPDATE_PREP_TIME:
     console.log('updated prep time val version: ', _.extend({}, state, {
-      selected: action.totalTimeInSeconds
+      totalTimeInSeconds: action.totalTimeInSeconds
   }));
       return _.extend({}, state, {
         totalTimeInSeconds: action.totalTimeInSeconds
@@ -50,7 +51,6 @@ const reducer = (state = INITIAL_STATE, action) => {
         filterToggled: !state.filterToggled
     })
     case types.UPDATE_SELECTED_FILTER_VAL:
-    debugger
       console.log('updated selected filter val version: ', _.extend({}, state, {
         selected: action.selected
     }));

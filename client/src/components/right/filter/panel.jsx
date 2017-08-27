@@ -54,26 +54,13 @@ class Panel extends React.Component {
     //   this.props.actions.updateSelectedFilterVal(value);
     //   this.props.updateCategoryTerm(this.props.category, value);
     // }
-    debugger
-    if (this.props.category === 'cuisine') {
 
-      if (value.includes('Any')) {
-        this.props.actions.updateCuisineType('');
-      } else {
-        this.props.actions.updateCuisineType(value);
-      }
+    if (this.props.category === 'cuisine') {
+      value.includes('Any') ? this.props.actions.updateCuisineType('') : this.props.actions.updateCuisineType(value);
     } else if (this.props.category === 'calories') {
-      if (value.includes('Any')) {
-        this.props.actions.updateNumCalories('10000');
-      } else {
-        this.props.actions.updateNumCalories(value);
-      }
+      value.includes ('Any') ? this.props.actions.updateNumCalories('10000') : this.props.actions.updateNumCalories(value);
     } else if (this.props.category === 'totalTimeInSeconds') {
-      if (value.includes('Any')) {
-        this.props.actions.updatePrepTime('10000');
-      } else {
-        this.props.actions.updatePrepTime(value);
-      }
+      value.includes('Any') ? this.props.actions.updatePrepTime('10000') : this.props.actions.updatePrepTime(value);
     }
   }
 
@@ -83,7 +70,7 @@ class Panel extends React.Component {
         <div style = {{'display': 'inline-block', 'float': 'left', 'padding-right' :'25px', 'margin-top' :'-10px'}}>
           <SelectField
             floatingLabelText = {this.props.selectCategory}
-            value = {this.props.search.selected}
+            value = {this.props.selectedVal}
             onChange = {this.handleClick}
             style={styles.customWidth}
           >
@@ -102,11 +89,13 @@ class Panel extends React.Component {
         </div>
       )
     } else {
+      console.log('the select field text is ', this.props.search.selected)
+      console.log('the props  field text is ', this.props)
       return (
         <div style = {{'display': 'inline-block', 'float': 'left', 'padding-right' :'25px', 'margin-top' :'-10px'}}>
           <SelectField
             floatingLabelText = {this.props.selectCategory}
-            value = {this.props.search.selected}
+            value = {this.props.selectedVal}
             onChange = {this.handleClick}
             style={styles.customWidth}
           >

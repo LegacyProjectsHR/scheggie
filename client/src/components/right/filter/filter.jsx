@@ -32,8 +32,6 @@ class Filter extends React.Component {
            <div style = {{'padding-left' :'30px'}}>
              <span onClick = {this.toggleFilterClick}>Show Filters<ArrowDown/></span>
            </div>
-
-
         )
       } else {
         return (
@@ -48,6 +46,7 @@ class Filter extends React.Component {
                     updateCategoryTerm = {this.updateCategoryTerm}
                     actions = {this.props.actions}
                     search = {this.props.search}
+                    selectedVal = {this.props.search.cuisine}
                   />
                 </span>
 
@@ -59,6 +58,7 @@ class Filter extends React.Component {
                     updateCategoryTerm = {this.updateCategoryTerm}
                     actions = {this.props.actions}
                     search = {this.props.search}
+                    selectedVal = {this.props.search.totalTimeInSeconds}
                   />
                 </span>
 
@@ -70,11 +70,11 @@ class Filter extends React.Component {
                     updateCategoryTerm = {this.updateCategoryTerm}
                     actions = {this.props.actions}
                     search = {this.props.search}
+                    selectedVal = {this.props.search.calories}
                   />
                 </span>
 
               </div>
-
             </div>
         )
       }

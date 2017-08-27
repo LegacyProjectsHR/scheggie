@@ -55,13 +55,15 @@ class Search extends React.Component {
     //   calories: this.state.calories
     // }
 
+
     var filter = {
       cuisine: this.props.search.cuisine,
       totalTimeInSeconds: this.props.search.totalTimeInSeconds,
       calories: this.props.search.calories
     }
-
-    debugger
+    // filter.totalTimeInSeconds === '' ? filter.totalTimeInSeconds = "10000" : this.props.search.totalTimeInSeconds
+    // filter.calories === '' ? filter.calories = "10000" : filter.calories = this.props.search.calories
+    console.log('the search filter is ', filter);
     this.debouncedSearch(this.state.searchTerm, filter);
   }
 
