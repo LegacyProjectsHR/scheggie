@@ -10,9 +10,9 @@ class Search extends React.Component {
     super(props);
     this.state = {
       searchTerm: '',
-      cuisine: '',
-      totalTimeInSeconds: 10000,
-      calories: ''
+      // cuisine: '',
+      // totalTimeInSeconds: 10000,
+      // calories: ''
     };
     this.debouncedSearch = _.debounce(
       this.props.actions.updateSearchThunk,
@@ -31,26 +31,39 @@ class Search extends React.Component {
     console.log('the category chosen is ', category);
     console.log('the term chosen is ', term);
     if(category === 'cuisine') {
-      this.setState({
-        cuisine: term
-      })
+      // this.setState({
+      //   cuisine: term
+      // })
+      this.props.actions.updateCuisineType(term);
     } else if (category === 'totalTimeInSeconds') {
-      this.setState({
-        totalTimeInSeconds: term
-      })
+      // this.setState({
+      //   totalTimeInSeconds: term
+      // })
+      this.props.actions.updatePrepTime(term);
     } else if (category === 'calories') {
-      this.setState({
-        calories: term
-      })
+      // this.setState({
+      //   calories: term
+      // })
+      this.props.actions.updateNumCalories(term);
     }
   }
 
   updateSearchAndFilter() {
+    // var filter = {
+    //   cuisine: this.state.cuisine,
+    //   totalTimeInSeconds: this.state.totalTimeInSeconds,
+    //   calories: this.state.calories
+    // }
+
+
     var filter = {
-      cuisine: this.state.cuisine,
-      totalTimeInSeconds: this.state.totalTimeInSeconds,
-      calories: this.state.calories
+      cuisine: this.props.search.cuisine,
+      // totalTimeInSeconds: this.props.search.totalTimeInSeconds,
+      // calories: this.props.search.calories
     }
+    this.props.search.totalTimeInSeconds === '' ? filter.totalTimeInSeconds = "10000" : filter.totalTimeInSeconds = this.props.search.totalTimeInSeconds
+    this.props.calories === '' ? filter.calories = "10000" : filter.calories = this.props.search.calories
+    
     this.debouncedSearch(this.state.searchTerm, filter);
   }
 
@@ -140,7 +153,7 @@ class Search extends React.Component {
             </span>
             <span style={{width: '30px'}}></span>
           </div>
-          <Filter updateCategoryTerm = {this.updateCategoryTerm}/>
+          <Filter updateCategoryTerm = {this.updateCategoryTerm} actions = {this.props.actions} search = {this.props.search}/>
         </div>
         <div style={{
           paddingRight: '30px'
